@@ -31,7 +31,7 @@ custs_gcs.cache()
 
 coladded_custs_gcs = custs_gcs.withColumn("loaddt",current_date()) # Added date column for load date
 coladded_custs_gcs.write.saveAsTable("default.custdata",mode="append") # Storing it in Hive for Data Analyst team for further analysis
-coladded_custs_gcs.write.json("gs://inceptez-usecase4/custdata") # Storing the data in JSON format for datscience team
+coladded_custs_gcs.write.json("gs://inceptez-usecase4/custdata",mode="append") # Storing the data in JSON format for datscience team
 
 # Stopping the program
 spark.stop()
